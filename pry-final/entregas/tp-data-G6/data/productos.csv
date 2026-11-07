@@ -1,0 +1,21 @@
+id,nombre,categoria,costo_unitario,precio_venta,stock_inicial
+1,Gaseosa Coca-Cola 1.5L,Bebidas,900.0,1500.0,60
+2,Agua Mineral 2L,Bebidas,400.0,750.0,80
+3,Cerveza Pilsen 1L,Bebidas,1100.0,1800.0,50
+4,Jugo Frutika 1L,Bebidas,700.0,1200.0,40
+5,Fideos Spaghetti 500g,Almacén,500.0,850.0,100
+6,Arroz 1kg,Almacén,650.0,1100.0,90
+7,Aceite de Girasol 900ml,Almacén,1200.0,2000.0,45
+8,Harina de Trigo 000 1kg,Almacén,450.0,750.0,70
+9,Azúcar Común 1kg,Almacén,550.0,900.0,65
+10,Café Molido 250g,Almacén,1800.0,2900.0,30
+11,Leche Entera 1L,Lácteos,600.0,1000.0,80
+12,Yogurt Trébol 1L,Lácteos,950.0,1600.0,35
+13,Queso Cremoso 500g,Lácteos,2200.0,3500.0,25
+14,Manteca 200g,Lácteos,1100.0,1750.0,30
+15,Detergente Vajilla 500ml,Limpieza,800.0,1350.0,50
+16,Lavandina Común 1L,Limpieza,500.0,850.0,60
+17,Jabón Líquido Ropa 800ml,Limpieza,1500.0,2400.0,30
+18,Papel Higiénico 4u,Limpieza,900.0,1450.0,75
+19,Alfajor,Golosinas,350.0,600.0,120
+20,Galletitas Rellenas 150g,Golosinas,600.0,1050.0,85
