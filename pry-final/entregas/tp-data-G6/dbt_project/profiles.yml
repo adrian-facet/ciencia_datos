@@ -1,0 +1,8 @@
+minimercado:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      # Ruta a la base que genera pipeline.py; se puede cambiar con DUCKDB_PATH.
+      path: "{{ env_var('DUCKDB_PATH', '../data.duckdb') }}"
+      threads: 4

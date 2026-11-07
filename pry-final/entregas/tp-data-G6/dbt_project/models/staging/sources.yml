@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: minimercado
+    description: Tablas crudas que pipeline.py (dlt) carga en data.duckdb, esquema raw_data.
+    schema: "{{ var('raw_schema') }}"
+    tables:
+      - name: productos
+        identifier: raw_productos
+      - name: vendedores
+        identifier: raw_vendedores
+      - name: compras
+        identifier: raw_compras
+      - name: ventas
+        identifier: raw_ventas
+      - name: movimientos_stock
+        identifier: raw_movimientos_stock

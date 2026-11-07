@@ -1,0 +1,73 @@
+version: 2
+
+models:
+  - name: stg_productos
+    description: Catálogo de productos con tipos normalizados.
+    columns:
+      - name: producto_id
+        tests: [not_null, unique]
+      - name: categoria
+        tests: [not_null]
+      - name: costo_unitario
+        tests: [not_null]
+      - name: precio_venta
+        tests: [not_null]
+
+  - name: stg_vendedores
+    columns:
+      - name: vendedor_id
+        tests: [not_null, unique]
+      - name: sucursal
+        tests: [not_null]
+
+  - name: stg_compras
+    columns:
+      - name: compra_id
+        tests: [not_null, unique]
+      - name: fecha
+        tests: [not_null]
+      - name: producto_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_productos')
+                field: producto_id
+
+  - name: stg_ventas
+    columns:
+      - name: venta_id
+        tests: [not_null, unique]
+      - name: fecha
+        tests: [not_null]
+      - name: producto_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_productos')
+                field: producto_id
+      - name: vendedor_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_vendedores')
+                field: vendedor_id
+
+  - name: stg_movimientos_stock
+    columns:
+      - name: movimiento_id
+        tests: [not_null, unique]
+      - name: producto_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_productos')
+                field: producto_id
+      - name: tipo_movimiento
+        tests:
+          - accepted_values:
+              arguments:
+                values: ["STOCK_INICIAL", "ENTRADA_COMPRA", "SALIDA_VENTA"]
