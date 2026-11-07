@@ -1,0 +1,15 @@
+[project]
+name = "minimercado-pipeline"
+version = "0.1.0"
+description = "Pipeline analítico reproducible de minimercado con dlt, DuckDB, dbt y Dagster"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "dlt[duckdb]",
+    "duckdb",
+    "dbt-duckdb",
+    "dagster",
+    "dagster-webserver",
+    "pytest",
+    "ruff"
+]
