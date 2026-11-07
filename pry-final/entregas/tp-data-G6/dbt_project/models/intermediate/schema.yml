@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: int_movimientos_stock
+    description: Movimientos con signo y stock corrido por producto.
+    columns:
+      - name: movimiento_id
+        tests: [not_null, unique]
+      - name: producto_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('stg_productos')
+                field: producto_id
+
+  - name: int_costo_promedio_producto
+    columns:
+      - name: producto_id
+        tests: [not_null, unique]
+      - name: costo_unitario_ponderado
+        tests: [not_null]
+
+  - name: int_ventas_enriquecidas
+    columns:
+      - name: venta_id
+        tests: [not_null, unique]

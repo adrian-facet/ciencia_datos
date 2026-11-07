@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: mart_ventas_diarias
+    description: Resumen diario de ventas, incluidos los días sin movimiento.
+    columns:
+      - name: fecha
+        tests: [not_null, unique]
+
+  - name: mart_rentabilidad_productos
+    description: Ganancia bruta y margen por producto.
+    columns:
+      - name: producto_id
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              arguments:
+                to: ref('stg_productos')
+                field: producto_id
+
+  - name: mart_rotacion_inventario
+    description: Stock actual, rotación, días de stock y alerta de reposición.
+    columns:
+      - name: producto_id
+        tests: [not_null, unique]
+      - name: bajo_punto_reposicion
+        tests: [not_null]
+
+  - name: mart_desempeno_vendedores
+    description: Ventas acumuladas y ranking por vendedor.
+    columns:
+      - name: vendedor_id
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              arguments:
+                to: ref('stg_vendedores')
+                field: vendedor_id
