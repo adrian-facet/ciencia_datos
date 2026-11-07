@@ -38,3 +38,18 @@ models:
               arguments:
                 to: ref('stg_vendedores')
                 field: vendedor_id
+
+  - name: mart_clasificacion_abc
+    description: Clasificación ABC de productos por facturación neta.
+    columns:
+      - name: producto_id
+        tests: [not_null, unique]
+      - name: clase_abc
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["A", "B", "C"]
+
+  - name: mart_estadisticas_ventas
+    description: Estadísticos descriptivos de la venta diaria (una fila).
